@@ -149,6 +149,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-不安全的反序列化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/a925c7a5.html">不安全的反序列化</a>
+    </h1>
+  
+
+        
+        <a href="/archives/a925c7a5.html" class="archive-article-date">
+  	<time datetime="2021-02-08T09:57:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　在Web应用安全中，反序列化漏洞是一种非常常见的漏洞形式，这篇文章主要参考了PortSwigger，介绍了不安全的反序列化的概念，并通过一个简单易懂的实验说明了不安全的反序列化是如何危害到Web安全的。</p>
+<h2 id="概念与背景"><a href="#概念与背景" class="headerlink" title="概念与背景"></a>概念与背景</h2><h3 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h3><p>　　序列化是将复杂的数据结构（例如对象其字段）转换为“更扁平”的格式的过程，这种格式可以用于字节流发送和接收，使用序列化技术，我们可以将复杂的数据写入内存、文件或数据库，并且通过网络在应用程序的不同组件之间或在API调用中发送复杂的数据。在序列化对象时，其状态也将保留下来。换句话说，序列化将保留对象的属性及其分配的值。</p>
+<p>　　很多编程语言都支持序列化操作，具体的序列化方式取决于不同的语言，某些语言将对象序列化为二进制格式，而其他语言则使用不同的字符串格式，并具有不同程度的可读性。需要注意的是，所有原始对象的属性都存储在序列化的数据流中，包括任何私有字段。在实际应用中，如果需要防止某些字段被序列化，必须在类声明中将其显式标记为“ transient”。在使用不同的编程语言时，序列化可能被称为marshalling（Ruby）或pickling（Python）。在本文中，这些术语与“序列化”同义。</p>
+<p><img src="https://gitee.com/zhili123/images/raw/master/20210208180129.png" alt="img"></p>
+<h3 id="不安全的反序列化"><a href="#不安全的反序列化" class="headerlink" title="不安全的反序列化"></a>不安全的反序列化</h3><p>　　不安全的反序列化是指攻击者操纵用户可控制的数据，在其中插入有害数据，这部分数据被序列化后发送给网站，网站接着对其进行反序列化，有害数据就被传递到了应用程序代码中。</p>
+<p>　　攻击者甚至有可能用不同类型的对象替换序列化的对象。如果网站不对序列化数据进行检查，那么任何类型的对象都会被反序列化和实例化。因此，不安全的反序列化也被称为“对象注入”漏洞。</p>
+<p>　　许多基于反序列化的攻击在反序列化之前就已经完成，这意味着即使网站本身并未与恶意对象进行直接交互，反序列化过程本身也可以发起攻击，因此，逻辑上依赖于编程语言的网站也容易受到这种技术的攻击。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Security</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/a925c7a5.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-对抗攻击之FGSM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/760d0af0.html">对抗攻击之FGSM</a>
+    </h1>
+  
+
+        
+        <a href="/archives/760d0af0.html" class="archive-article-date">
+  	<time datetime="2018-11-02T14:38:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　对抗样本的攻防是一个非常有趣的领域，它引发了我们的思考：当前模型的准确率是否只是徒有其表，并没有真正学习到内在的语义信息，无法应对泛化问题</p>
+<p>　　本文仅从对抗攻击出发，介绍一种简单的对抗样本生成算法fast gradient sign method（FGSM）</p>
+<h2 id="什么是对抗攻击"><a href="#什么是对抗攻击" class="headerlink" title="什么是对抗攻击"></a>什么是对抗攻击</h2><p>　　算法之前，先介绍一下对抗攻击的基本概念</p>
+<p>　　对抗攻击最核心的手段就是制造对抗样本去迷惑模型，比如在计算机视觉领域，攻击样本就是向原始样本中添加一些人眼无法察觉的噪声，这些噪声不会影响人类识别，但却很容易迷惑机器学习模型，使它作出错误的判断</p>
+<p><img src="https://gitee.com/zhili123/images/raw/master/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f31333731343434382d376138383864336134303765346334392e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696.png" alt="img"></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/760d0af0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-产生和使用共享库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +351,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
         		</li>
       		
 		</ul>
@@ -204,6 +362,163 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/archives/efcaba0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-微信生态圈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/cd1c7ee4.html">微信生态圈的发展趋势分析</a>
+    </h1>
+  
+
+        
+        <a href="/archives/cd1c7ee4.html" class="archive-article-date">
+  	<time datetime="2018-10-17T11:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>借着课程大作业的机会对微信生态圈的概念做了一个小小的梳理</p>
+<h2 id="什么是微信生态圈"><a href="#什么是微信生态圈" class="headerlink" title="什么是微信生态圈"></a>什么是微信生态圈</h2><p>​    传统的生态圈由生产者、消费者、分解者组成，各个部分间通过资源的共享，互惠互利，共同维持着生态系统的稳定性。</p>
+<p>​    商业生态圈，指商业活动的各利益相关者通过共同建立一个价值平台而实现生态价值的最大化，力求“共同进化”。现代企业，从企业的各项业务，到企业间的关系，都是一种互联的概念，只有建立良好的生态圈，才能充分地整合资源、互惠互利</p>
+<p>​    与生物生态圈相比，有很多类似之处，首先竞争性依然存在，但更多是强化了彼此间的联动性、共赢性和整体发展的持续性；其次弱肉强食的收购、吞并现象依然持续，一些非正当竞争依然存在，这就是生态圈的自由性体现。最后生态圈还存在一些非主流甚至怪异的现象，这是进化的体现。</p>
+<p>​    具体到微信，微信生态圈同时实现了沟通、经营、购物、支付一体化，以微信平台为核心，出现一个较为完备的体系结构</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/cd1c7ee4.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-深度学习中常用的优化算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/6d62d50e.html">深度学习中常用的优化算法</a>
+    </h1>
+  
+
+        
+        <a href="/archives/6d62d50e.html" class="archive-article-date">
+  	<time datetime="2018-03-20T13:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　因为在求解最优化问题的时候有可能陷入局部最优或马鞍点（尤其当解处在一个高维空间中时）， Momentum, AdaGrad, RMSProp, Adam是解决这个问题的不同方法</p>
+<h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>　　类似于物理中惯性的概念，一个球从斜坡上滚下到达平面时由于惯性的作用会继续运动一段距离，当解处在局部最优或马鞍点时也引入这样一个概念，让它继续运动</p>
+<p>　　式子如下，velocity考虑了之前所有的梯度和当前梯度的影响，由于衰减率的存在，越接近当前状态的梯度所占的权重越大，反之越小，这样就做到了让之前的状态影响现在的状态</p>
+<p><img src="https://gitee.com/zhili123/images/raw/master/MARA1.png"><img src="https://gitee.com/zhili123/images/raw/master/MARA2.png"></p>
+<h2 id="Nesterov-Momentum"><a href="#Nesterov-Momentum" class="headerlink" title="Nesterov Momentum"></a>Nesterov Momentum</h2><p>　　Nesterov Momentum与Momentum稍有不同换元之后比较好解释，首先计算了当前的velocity，然后用gradient对其进行校正，相当于对gradient进行了一些修正，有点类似于改进欧拉法</p>
+<p><img src="https://gitee.com/zhili123/images/raw/master/MARA3.png"><img src="https://gitee.com/zhili123/images/raw/master/MARA4.png"></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/6d62d50e.html">展开全文 >></a>
         </p>
       
 
@@ -325,7 +640,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

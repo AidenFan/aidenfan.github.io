@@ -2,7 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aidenfan.github.io/archives/a925c7a5.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://aidenfan.github.io/archives/efcaba0.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/archives/6d62d50e.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/archives/760d0af0.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/archives/cd1c7ee4.html</loc>
     
     <lastmod>2021-02-08</lastmod>
     
@@ -18,7 +46,28 @@
 
   
   <url>
-    <loc>https://aidenfan.github.io/tags/os/</loc>
+    <loc>https://aidenfan.github.io/tags/Deep-Learning/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/tags/Security/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/tags/OS/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aidenfan.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
