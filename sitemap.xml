@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2018/10/31/%E4%BA%A7%E7%94%9F%E5%92%8C%E4%BD%BF%E7%94%A8%E5%85%B1%E4%BA%AB%E5%BA%93/</loc>
+    <loc>https://aidenfan.github.io/2018/10/31/%E4%BA%A7%E7%94%9F%E5%92%8C%E4%BD%BF%E7%94%A8%E5%85%B1%E4%BA%AB%E5%BA%93/</loc>
     
     <lastmod>2021-02-07</lastmod>
     
@@ -10,7 +10,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://aidenfan.github.io/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -18,7 +18,7 @@
 
   
   <url>
-    <loc>http://example.com/tags/os/</loc>
+    <loc>https://aidenfan.github.io/tags/os/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
