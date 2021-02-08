@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="google-site-verification" content="XGJNngKN1EHlmcClywWJn7IRLKJo5WedE_TPq1q--1s" />
+  <meta name="google-site-verification" content="XGJNngKN1EHlmcClywWJn7IRLKJo5WedE_TPq1q--1s">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://aidenfan.github.io">
   <title>深度学习中常用的优化算法 | Aiden&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://gitee.com/zhili123/images/raw/master/MARA4.png">
 <meta property="og:image" content="https://gitee.com/zhili123/images/raw/master/MARA5.png">
 <meta property="article:published_time" content="2018-03-20T13:58:09.000Z">
-<meta property="article:modified_time" content="2021-02-08T09:52:26.915Z">
+<meta property="article:modified_time" content="2021-02-08T15:37:58.402Z">
 <meta property="article:author" content="Aiden">
 <meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
 			<img src="/asserts/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Aiden Fan</a></h1>
 		</hgroup>
 		
 
@@ -85,7 +85,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/AidenFan" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -112,7 +112,7 @@
 				<img src="/asserts/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Aiden Fan</h1>
 			</hgroup>
 			
 			
@@ -126,7 +126,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/AidenFan" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -155,7 +155,7 @@
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             <article id="post-深度学习中常用的优化算法" class="article article-type-post " itemscope itemprop="blogPost">
@@ -182,10 +182,10 @@
 <h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>　　类似于物理中惯性的概念，一个球从斜坡上滚下到达平面时由于惯性的作用会继续运动一段距离，当解处在局部最优或马鞍点时也引入这样一个概念，让它继续运动</p>
 <p>　　式子如下，velocity考虑了之前所有的梯度和当前梯度的影响，由于衰减率的存在，越接近当前状态的梯度所占的权重越大，反之越小，这样就做到了让之前的状态影响现在的状态</p>
 <p><img src="https://gitee.com/zhili123/images/raw/master/MARA1.png"><img src="https://gitee.com/zhili123/images/raw/master/MARA2.png"></p>
-<h2 id="Nesterov-Momentum"><a href="#Nesterov-Momentum" class="headerlink" title="Nesterov Momentum"></a>Nesterov Momentum</h2><p>　　Nesterov Momentum与Momentum稍有不同换元之后比较好解释，首先计算了当前的velocity，然后用gradient对其进行校正，相当于对gradient进行了一些修正，有点类似于改进欧拉法</p>
-<p><img src="https://gitee.com/zhili123/images/raw/master/MARA3.png"><img src="https://gitee.com/zhili123/images/raw/master/MARA4.png"></p>
 <a id="more"></a>
 
+<h2 id="Nesterov-Momentum"><a href="#Nesterov-Momentum" class="headerlink" title="Nesterov Momentum"></a>Nesterov Momentum</h2><p>　　Nesterov Momentum与Momentum稍有不同换元之后比较好解释，首先计算了当前的velocity，然后用gradient对其进行校正，相当于对gradient进行了一些修正，有点类似于改进欧拉法</p>
+<p><img src="https://gitee.com/zhili123/images/raw/master/MARA3.png"><img src="https://gitee.com/zhili123/images/raw/master/MARA4.png"></p>
 <h2 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grad_squared = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    dx = compute_gradient(x)</span><br><span class="line">    grad_squared += dx * dx</span><br><span class="line">    x -= learning_rate * dx / (np.sqrt(grad_squared) + <span class="number">1e-7</span>)</span><br><span class="line">    <span class="comment"># 1e-7 是为了防止分母为零报错</span></span><br></pre></td></tr></table></figure>
 <p>　　考虑在不同维度的gradient</p>
 <p>　　当dx很小时，dx除以一个很小的数，gradient变大</p>
@@ -343,7 +343,7 @@
 			<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 			<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">Yilia</a> by Litten
       	</div>
     </div>
   </div>
@@ -440,7 +440,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

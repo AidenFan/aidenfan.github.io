@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="google-site-verification" content="XGJNngKN1EHlmcClywWJn7IRLKJo5WedE_TPq1q--1s" />
+  <meta name="google-site-verification" content="XGJNngKN1EHlmcClywWJn7IRLKJo5WedE_TPq1q--1s">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://aidenfan.github.io">
   <title>不安全的反序列化 | Aiden&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://gitee.com/zhili123/images/raw/master/20210208180944.png">
 <meta property="og:image" content="https://gitee.com/zhili123/images/raw/master/20210208181010.png">
 <meta property="article:published_time" content="2021-02-08T09:57:24.000Z">
-<meta property="article:modified_time" content="2021-02-08T10:26:10.317Z">
+<meta property="article:modified_time" content="2021-02-08T15:37:28.268Z">
 <meta property="article:author" content="Aiden">
 <meta property="article:tag" content="Security">
 <meta name="twitter:card" content="summary">
@@ -59,7 +59,7 @@
 			<img src="/asserts/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Aiden Fan</a></h1>
 		</hgroup>
 		
 
@@ -86,7 +86,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/AidenFan" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -113,7 +113,7 @@
 				<img src="/asserts/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Aiden Fan</h1>
 			</hgroup>
 			
 			
@@ -127,7 +127,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/AidenFan" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -156,7 +156,7 @@
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             <article id="post-不安全的反序列化" class="article article-type-post " itemscope itemprop="blogPost">
@@ -183,11 +183,11 @@
 <h2 id="概念与背景"><a href="#概念与背景" class="headerlink" title="概念与背景"></a>概念与背景</h2><h3 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h3><p>　　序列化是将复杂的数据结构（例如对象其字段）转换为“更扁平”的格式的过程，这种格式可以用于字节流发送和接收，使用序列化技术，我们可以将复杂的数据写入内存、文件或数据库，并且通过网络在应用程序的不同组件之间或在API调用中发送复杂的数据。在序列化对象时，其状态也将保留下来。换句话说，序列化将保留对象的属性及其分配的值。</p>
 <p>　　很多编程语言都支持序列化操作，具体的序列化方式取决于不同的语言，某些语言将对象序列化为二进制格式，而其他语言则使用不同的字符串格式，并具有不同程度的可读性。需要注意的是，所有原始对象的属性都存储在序列化的数据流中，包括任何私有字段。在实际应用中，如果需要防止某些字段被序列化，必须在类声明中将其显式标记为“ transient”。在使用不同的编程语言时，序列化可能被称为marshalling（Ruby）或pickling（Python）。在本文中，这些术语与“序列化”同义。</p>
 <p><img src="https://gitee.com/zhili123/images/raw/master/20210208180129.png" alt="img"></p>
+<a id="more"></a>
+
 <h3 id="不安全的反序列化"><a href="#不安全的反序列化" class="headerlink" title="不安全的反序列化"></a>不安全的反序列化</h3><p>　　不安全的反序列化是指攻击者操纵用户可控制的数据，在其中插入有害数据，这部分数据被序列化后发送给网站，网站接着对其进行反序列化，有害数据就被传递到了应用程序代码中。</p>
 <p>　　攻击者甚至有可能用不同类型的对象替换序列化的对象。如果网站不对序列化数据进行检查，那么任何类型的对象都会被反序列化和实例化。因此，不安全的反序列化也被称为“对象注入”漏洞。</p>
 <p>　　许多基于反序列化的攻击在反序列化之前就已经完成，这意味着即使网站本身并未与恶意对象进行直接交互，反序列化过程本身也可以发起攻击，因此，逻辑上依赖于编程语言的网站也容易受到这种技术的攻击。</p>
-<a id="more"></a>
-
 <h3 id="不安全的反序列化漏洞产生的原因"><a href="#不安全的反序列化漏洞产生的原因" class="headerlink" title="不安全的反序列化漏洞产生的原因"></a>不安全的反序列化漏洞产生的原因</h3><p>　　不安全的反序列化漏洞的产生通常源于人们普遍缺乏对反序列化的危险程度的认识。人们通常认为反序列化对象是可信任的，尤其是当使用具有二进制序列化格式的语言时，开发人员可能会认为用户无法有效读取或操纵数据。但是，尽管可能需要付出更多的努力，但攻击者有可能利用二进制序列化的对象，就像利用基于字符串格式的对象进行攻击一样。</p>
 <p>　　有时网站所有者会对反序列化的数据实施某些形式的附加检查来保证安全性。然而，这种方法通常是无效的，因为验证不能覆盖到所有可能的情况。这些检查从根本上来说也是有缺陷的，因为它们依赖于对数据进行反序列化后对其进行检查，在许多情况下，这时反序列化的攻击已经完成。</p>
 <p>　　现代网站中存在的大量依赖关系使得基于反序列化的攻击成为可能。一个典型的站点可能会实现许多不同的库，每个库也都有自己的依赖性，这会创建大量难以保证安全性的类和方法，由于攻击者可以创建任何这些类的实例，因此很难预测恶意数据调用了哪些方法。因此，几乎不可能预料到恶意数据的流动并堵塞每个潜在的漏洞。</p>
@@ -220,7 +220,7 @@
 <p><img src="https://gitee.com/zhili123/images/raw/master/20210208181010.png" alt="img"></p>
 <p>　　再次向/admin/delete?username=carlos发送相同的请求即可达到删除用户carlos的目的。</p>
 <p>　　这种简单的情况在实际应用并不常见。但是，以这种方式编辑属性值说明了不安全反序列化的危害。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/deserialization/exploiting">https://portswigger.net/web-security/deserialization/exploiting</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://portswigger.net/web-security/deserialization/exploiting">https://portswigger.net/web-security/deserialization/exploiting</a></p>
 
       
 
@@ -354,7 +354,7 @@
 			<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 			<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">Yilia</a> by Litten
       	</div>
     </div>
   </div>
@@ -451,7 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
